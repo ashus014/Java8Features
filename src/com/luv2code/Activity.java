@@ -9,6 +9,8 @@ public interface Activity {
     //You need to add default in front of your method
 
     default public void shineNow(){
+        System.out.println("AshuSingh");
+
 
     }
 
