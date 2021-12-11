@@ -1,31 +1,93 @@
 package com.luv2code;
 
-import java.util.ArrayList;
-import java.util.List;
+class A1{
 
-public class ActivityImpl implements Activity{
+    private int id;
+    private String name;
+    private int marks;
 
-    @Override
-    public void Show() {
+    public A1(int id, String name, int marks) {
+        this.id = id;
+        this.name = name;
+        this.marks = marks;
+    }
+}
 
+class A2{
+
+    private int id;
+    private String name;
+    private int marks;
+
+    public A2(int id, String name, int marks) {
+        this.id = id;
+        this.name = name;
+        this.marks = marks;
+    }
+}
+
+class aa{
+
+    public void showAA(){
+        System.out.println("inside aa");
+    }
+}
+
+class bb extends  aa{
+
+    public void showAA(){
+        System.out.println("inside bb");
     }
 
     public static void main(String[] args) {
 
+       new bb().showAA();
+    }
+}
 
-        //Activity activity = new ActivityImpl();
-        //activity.shineNow();
+class A3{
 
-        //foreach loop in Collections
-        //using lambda expression
+    int a;
+    int b;
+    String str;
 
-        List list = new ArrayList<Integer>();
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        list.add(5);
+    public void setValue(int a, int b, String str){
+        a=a;
+        b=b;
+        str=str;
+    }
 
-        list.forEach(i -> System.out.println(i));
+    public void display(){
+
+        System.out.println("Value of a :: " + a);
+        System.out.println("Value of b :: " + b);
+        System.out.println("Value of str :: " + str);
+    }
+}
+
+public class ActivityImpl {
+
+    public static void main(String[] args) {
+
+        A1 a1 = new A1(1, "Ashu", 99);
+        A2 a2 = new A2(1, "Ashu", 99);
+
+        System.out.println(a1.equals(a2));
+        System.out.println(a1);
+        System.out.println(a2);
+
+        String str = "Ashu";
+
+        String str1 = new String("Ashu");
+
+        System.out.println(str);
+        System.out.println(str1);
+
+        System.out.println("-------------------");
+
+        A3 a3 = new A3();
+        a3.setValue(2,3, "Ashu");
+        a3.display();
 
     }
 }
