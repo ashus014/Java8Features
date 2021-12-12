@@ -95,17 +95,111 @@ public class Solution {
 
     public int countValidWords(String sentence) {
 
-        String[] splitStr = sentence.split("\\s+");
+        /*
+        * A sentence consists of lowercase letters ('a' to 'z'), digits ('0' to '9'), hyphens ('-'), punctuation marks ('!', '.', and ','), and spaces (' ') only. Each sentence can be broken down into one or more tokens separated by one or more spaces ' '.
 
-        for(String s : splitStr){
-            System.out.println(s);
+A token is a valid word if all three of the following are true:
+
+It only contains lowercase letters, hyphens, and/or punctuation (no digits).
+There is at most one hyphen '-'. If present, it must be surrounded by lowercase characters ("a-b" is valid, but "-ab" and "ab-" are not valid).
+There is at most one punctuation mark. If present, it must be at the end of the token ("ab,", "cd!", and "." are valid, but "a!b" and "c.," are not valid).
+Examples of valid words include "a-b.", "afad", "ba-c", "a!", and "!".
+
+Given a string sentence, return the number of valid words in sentence.
+
+
+
+Example 1:
+
+Input: sentence = "cat and  dog"
+Output: 3
+Explanation: The valid words in the sentence are "cat", "and", and "dog".
+*
+* */
+
+        String[] splitStr = sentence.trim().split("\\s+");
+        int validWord = splitStr.length;
+        //int numCheck = splitStr.length;
+
+        /*for(String s: splitStr){
+            System.out.println("->" + s + " ");
+        }*/
+
+
+        //Check Number
+        for (int i=0;i<splitStr.length;i++){
+
+            int hyphen_count=0;
+            int punch_count=0;
+            String temp = splitStr[i];
+
+            for(int j=0;j<temp.length();j++){
+
+
+                if(temp.charAt(j) >= '0' && temp.charAt(j)<='9'){
+
+                    --validWord;
+                    break;
+                }
+
+                if((temp.charAt(j) >='a' && temp.charAt(j) <='z')
+                        || temp.charAt(j) == '-' || temp.charAt(j) == '.'
+                        || temp.charAt(j) == '!' || temp.charAt(j) == ','){
+
+                        //"-" hyphen count
+                        if(temp.charAt(0) == '-' || temp.charAt(temp.length()-1) == '-'){
+
+                            --validWord;
+                            break;
+                        }
+
+                        if(temp.charAt(j)=='-' && ((temp.charAt(j-1) <'a' || temp.charAt(j-1) >'z') ||
+                                (temp.charAt(j+1) <'a' || temp.charAt(j+1) >'z'))){
+                            --validWord;
+
+                            break;
+                        }
+
+                      if(temp.charAt(j) == '-'){
+
+                          hyphen_count++;
+                      }
+
+                      if (hyphen_count>1){
+                          --validWord;
+                          break;
+                      }
+
+                      if( j!=(temp.length()-1)){
+
+                          if(temp.charAt(j) == '!' || temp.charAt(j) == ',' || temp.charAt(j) == '.' ){
+
+                              --validWord;
+                              break;
+                          }
+                      }
+
+                    if(temp.charAt(j) == '!' || temp.charAt(j) == ',' || temp.charAt(j) == '.'){
+
+                        punch_count++;
+                    }
+
+                    if (punch_count>1){
+                        --validWord;
+                        break;
+                    }
+                }
+            }
         }
-        return 0;
+
+
+
+        return validWord;
     }
 
 }
 
-/////////////////////////////////////////////
+
  class X{
 
     public static void main(String[] args) {
