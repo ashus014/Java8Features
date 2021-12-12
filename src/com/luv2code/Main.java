@@ -8,6 +8,6 @@ public class Main {
         Solution s1 = new Solution();
         String s = "codeleet";
         int[] indices = {4,5,6,7,0,2,1,3};
-        System.out.println(s1.restoreString( s, indices));
+        System.out.println(s1.countValidWords("cat and  dog"));
     }
 }

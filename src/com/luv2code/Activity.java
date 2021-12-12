@@ -14,4 +14,9 @@ public interface Activity {
 
     }
 
+    //protected  short stop=23;
+    //public static  short stop=23;
+    //transient short stop=23;
+
+
 }
