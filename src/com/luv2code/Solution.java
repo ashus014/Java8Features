@@ -1,6 +1,8 @@
 package com.luv2code;
 
 import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 public class Solution {
 
@@ -197,6 +199,163 @@ Explanation: The valid words in the sentence are "cat", "and", and "dog".
         return validWord;
     }
 
+    public int maxProfit(final List<Integer> A) {
+
+        /*
+        * Say you have an array, A, for which the ith element is the price of a given stock on day i.
+
+Design an algorithm to find the maximum profit.
+
+You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times).
+
+However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).
+
+Input Format:
+
+The first and the only argument is an array of integer, A.
+
+Output Format:
+
+Return an integer, representing the maximum possible profit.
+
+Constraints:
+
+0 <= len(A) <= 1e5
+1 <= A[i] <= 1e7
+
+Example:
+
+Input 1:
+    A = [1, 2, 3]
+
+
+Output 1:
+    2
+
+
+
+Explanation 1:
+    => Buy a stock on day 0.
+    => Sell the stock on day 1. (Profit +1)
+    => Buy a stock on day 1.
+    => Sell the stock on day 2. (Profit +1)
+
+
+
+Overall profit = 2
+        * */
+        if(A.size()==0){
+            return 0;
+        }
+        Integer[] tempList = A.toArray(new Integer[0]);
+
+        Integer[] diffList = new Integer[A.size()-1];
+        int totalSum = 0;
+
+        for(int i=0;i<A.size()-1;i++){
+            diffList[i] = tempList[i+1] - tempList[i];
+            if(diffList[i] > 0){
+                totalSum+=diffList[i];
+            }
+        }
+
+        return totalSum;
+    }
+
+    //still workig on this logic...
+    public int majorityElement(final List<Integer> A) {
+
+        // Insert all elements in hash
+        Map<Integer, Integer> hp =
+                new HashMap<Integer, Integer>();
+
+        for(int i = 0; i < A.size(); i++)
+        {
+            int key = A.get(i);
+            if(hp.containsKey(key))
+            {
+                int freq = hp.get(key);
+                freq++;
+                hp.put(key, freq);
+            }
+            else
+            {
+                hp.put(key, 1);
+            }
+        }
+
+        int max_count = 0, res = -1;
+
+        for(Map.Entry<Integer, Integer> val : hp.entrySet())
+        {
+            if (max_count < val.getValue())
+            {
+                res = val.getKey();
+                max_count = val.getValue();
+            }
+        }
+
+            return res;
+    }
+
+    public void collectionDemo(){
+
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        arrayList.add(11);
+        arrayList.add(22);
+        arrayList.add(33);
+
+        Integer[] ashu = new Integer[arrayList.size()];
+
+        //ashu = arrayList.toArray(ashu);
+        ashu = arrayList.toArray(new Integer[0]);
+
+        System.out.println("<--- Before");
+        for(Integer temp : ashu){
+            System.out.println(temp);
+        }
+
+        arrayList.removeIf(n->(n%2==0));
+
+        //Java 8 foreach method
+        System.out.println("<--- After");
+        arrayList.forEach(n-> System.out.println(n));
+
+        System.out.println("<-----------");
+        List<Integer> al = Arrays.asList(10,20,30,40);
+
+        for(Object temp : al){
+            System.out.println(temp);
+        }
+
+        System.out.println("<-----------");
+        List<Integer> linkedList = Arrays.asList(11,22,33,44,55,66,77,88);
+
+        linkedList.stream()
+                .filter(x-> x>50)
+                .filter(x-> x%2==0)
+                .forEach(System.out::println);
+
+        System.out.println("<-----------");
+        int[] ashu2 = {55,33,44,22,11};
+
+        Arrays.sort(ashu2);
+
+        for(int x: ashu2){
+            System.out.println(x);
+        }
+
+
+    }
+
+    public void streamExamples(){
+
+        Stream.iterate(1, x->x+1)
+                .filter(x->x.toString().contains("5"))
+                .limit(10)
+                .forEach(x-> System.out.println(x));
+    }
+
 }
 
 
@@ -270,6 +429,26 @@ class Test extends Two{
         A a= new Two();
         a.method1();
     }
+}
+
+class GfG{
+
+    static void printCond(Collection<Integer> C, Predicate<Integer> p){
+
+        for(Integer x: C){
+            if(p.test(x)) {
+                System.out.println(x + " ");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        List<Integer> al = new ArrayList<>();
+        al = Arrays.asList(10,5,20,7,30);
+        printCond(al,x->x%2==0);
+    }
+
+
 }
 
 
