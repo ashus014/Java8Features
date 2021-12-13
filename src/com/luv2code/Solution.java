@@ -350,10 +350,30 @@ Overall profit = 2
 
     public void streamExamples(){
 
+        //Using Stream printing numbers which has '5'
         Stream.iterate(1, x->x+1)
                 .filter(x->x.toString().contains("5"))
                 .limit(10)
                 .forEach(x-> System.out.println(x));
+
+
+        /*
+        * using Stream to sort chars which begin with 'a' and end with 'c'
+        * */
+
+        String arr[] = {"abc", "cde", "acd", "aec", "xyz", "aac"};
+
+        Arrays.stream(arr)
+                .filter(x -> x.startsWith("a"))
+                .filter(x -> x.endsWith("c"))
+                .sorted()
+                .forEach(x -> System.out.println(x));
+
+        /*
+        *
+        *
+        * */
+
     }
 
 }
@@ -431,6 +451,7 @@ class Test extends Two{
     }
 }
 
+//Example with Predicate Interface to filter records
 class GfG{
 
     static void printCond(Collection<Integer> C, Predicate<Integer> p){
@@ -451,5 +472,61 @@ class GfG{
 
 }
 
+//More stream examples
+class Student{
+    int roll;
+    int marks;
+    String name;
+
+    public Student(int roll, int marks, String name) {
+        this.roll = roll;
+        this.marks = marks;
+        this.name = name;
+    }
+
+    public int getRoll() {
+        return roll;
+    }
+
+    public int getMarks() {
+        return marks;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "roll=" + roll +
+                ", marks=" + marks +
+                ", name='" + name + '\'' +
+                '}';
+    }
+}
+
+class GfG2{
+
+    public static void main(String[] args) {
+
+        List<Student> listStudent = Arrays.asList
+                                (new Student(110,70,"abc"),
+                                (new Student(101,80,"bcd")),
+                                (new Student(120,60,"xyz")));
+
+        double result = listStudent.stream()
+                .mapToInt(x -> x.getMarks())
+                .average()
+                .getAsDouble();
+
+        Collections.sort(listStudent, (x,y)-> x.getRoll() - y.getRoll() );
+
+        listStudent.forEach(System.out::println);
+
+    }
+
+
+}
 
 
