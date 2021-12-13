@@ -376,6 +376,72 @@ Overall profit = 2
 
     }
 
+    public void searchSmaller(List<Integer> I){
+
+        int benchMark = 10;
+        I.stream()
+                .filter(x-> x<benchMark)
+                .forEach(x-> System.out.println(x));
+    }
+
+    //working with sets
+    public void setsWorking(){
+
+        List<Integer> linkedList = Arrays.asList(11,22,11,44,55,44,77);
+
+        Set<Integer> hashSet = new HashSet<>(linkedList);
+        //Using HashSet
+        System.out.println("-> Using HashSet");
+        hashSet.stream()
+                .sorted()
+                .forEach(System.out::println);
+
+        //Using Treeset
+        System.out.println("-> Using TreeSet");
+        Set<Integer> treeSet = new TreeSet<>(linkedList);
+        treeSet.forEach(x-> System.out.println(x));
+
+        System.out.println("---->");
+        Integer[] ashuArray = {11,22,33,44,33,22};
+        Set<Integer> hashSet2 = new HashSet<>(List.of(ashuArray));
+        hashSet2.forEach(System.out::println);
+
+
+    }
+
+    //take array as an argument and print repeating elemnt
+    public void printRepeating(final int[]yourArray){
+
+        Set<Integer> hashSet = new HashSet<>();
+        for(int i=0;i<yourArray.length;i++){
+
+            if(!hashSet.add(yourArray[i])){
+
+                System.out.println(yourArray[i]);
+            }
+
+        }
+
+    }
+
+    //print common elements of two arrays
+    public void printCommon(final int[]array1,final int[]array2){
+
+        Set<Integer> hs2 = new HashSet<Integer>();
+
+        for(int i=0;i<array2.length;i++){
+            hs2.add(array2[i]);
+        }
+
+        for(int i=0;i<array1.length;i++){
+
+            if(hs2.contains(array1[i])){
+                System.out.println(array1[i]);
+            }
+        }
+
+
+    }
 }
 
 

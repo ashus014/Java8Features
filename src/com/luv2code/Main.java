@@ -10,14 +10,9 @@ public class Main {
 
 
         Solution s1 = new Solution();
-        String s = "codeleet";
-        int[] indices = {4,5,6,7,0,2,1,3};
-        List<Integer> arrayList = new ArrayList<>();
-        arrayList.add(2);
-        arrayList.add(1);
-        arrayList.add(2);
-        //System.out.println(s1.majorityElement(arrayList));
-        s1.streamExamples();
+        int[]yourArray1={10,8,10,7,7,6};
+        int[]yourArray2={77,8,140,7,87,6};
+        s1.printCommon(yourArray1,yourArray2);
         //s1.maxProfit(Arrays.asList(5,2,10));
     }
 }
