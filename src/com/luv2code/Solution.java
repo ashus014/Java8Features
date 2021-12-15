@@ -479,6 +479,36 @@ Overall profit = 2
         System.out.println(c2[s1.length()]);
     }
 
+    //Sort and original Index problem
+    public void originalIndex(final Integer[] array){
+
+        Map<Integer, Integer> hashTable = new TreeMap<>();
+
+        for(int i=0; i<array.length; i++){
+
+            hashTable.put(array[i], i);
+        }
+
+        System.out.println(hashTable);
+
+    }
+
+    //sort char value according to integer value
+    public void sortCharAndIntValue(final Integer[] integerValue, final Character[] charactersValue){
+
+        Map<Integer, Character> map = new TreeMap<>();
+
+        for(int i=0; i<charactersValue.length; i++){
+
+            map.put(integerValue[i], charactersValue[i]);
+        }
+
+        map.forEach((x,y)-> System.out.println(y));
+
+    }
+
+
+
 }
 
 //working of comparator
@@ -496,6 +526,75 @@ class GfG3{
 
         System.out.println(Arrays.toString(arr));
 
+        String arr2[] = {"gfg", "IDE", "GFG"};
+
+        Arrays.stream(arr2)
+                .sorted((x,y) -> x.toLowerCase().compareTo(y.toLowerCase()))
+                .forEach(x-> System.out.println(x));
+
+        Student2 arr3[] = {
+
+                new Student2("abc", 120),
+                new Student2("xyz", 110),
+                new Student2("abc", 101)
+        };
+
+        Arrays.stream(arr3)
+                .sorted(Comparator.comparing(Student2::getName).thenComparing(Student2::getRollNo))
+                .forEach(x -> System.out.println(x));
+
+        Integer arr4[] = {3,7,2,5,12,30};
+
+
+        List<Integer> newList = Arrays.asList(arr4);
+        Collections.sort(newList,Collections.reverseOrder());
+
+        newList.forEach(System.out::println);
+
+        int sum=0;
+        for(int i=0; i< 3; i++){
+
+            sum+= newList.get(i);
+        }
+
+        System.out.println(sum);
+
+        //Integer arr5[] = newList.toArray(new Integer[0]);
+    }
+}
+
+class Student2{
+
+    String name;
+    int rollNo;
+
+    public Student2(String name, int rollNo) {
+        this.name = name;
+        this.rollNo = rollNo;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getRollNo() {
+        return rollNo;
+    }
+
+    public void setRollNo(int rollNo) {
+        this.rollNo = rollNo;
+    }
+
+    @Override
+    public String toString() {
+        return "Student2{" +
+                "name='" + name + '\'' +
+                ", rollNo=" + rollNo +
+                '}';
     }
 }
 
