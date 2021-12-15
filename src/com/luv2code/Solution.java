@@ -442,6 +442,42 @@ Overall profit = 2
 
 
     }
+
+    //find frequency of each element
+    public void findFreq( int[] array){
+
+        Map<Integer, Integer> hashArray = new Hashtable<>();
+
+        for(int i=0; i< array.length;i++){
+
+                hashArray.put(array[i], hashArray.getOrDefault(array[i],0)+1);
+        }
+        for(Map.Entry x : hashArray.entrySet()){
+
+            /*System.out.println(x.getKey() + " " + x.getValue() );
+            StringBuilder ashu = new StringBuilder("ashu")
+            ashu.append("");*/
+        }
+    }
+
+    //find that extra character
+    public void findThatExtraChar(String s1, String s2){
+
+        char[] c1 = s1.toCharArray();
+        char[] c2 = s2.toCharArray();
+
+        Arrays.sort(c1);
+        Arrays.sort(c2);
+
+        for(int i=0; i<s1.length(); i++){
+
+            if(c1[i] != c2[i]){
+                System.out.println(c2[i]);
+            }
+        }
+
+        System.out.println(c2[s1.length()]);
+    }
 }
 
 

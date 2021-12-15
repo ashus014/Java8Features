@@ -11,8 +11,7 @@ public class Main {
 
         Solution s1 = new Solution();
         int[]yourArray1={10,8,10,7,7,6};
-        int[]yourArray2={77,8,140,7,87,6};
-        s1.printCommon(yourArray1,yourArray2);
+        s1.findThatExtraChar("azcd","azecd");
         //s1.maxProfit(Arrays.asList(5,2,10));
     }
 }
