@@ -478,8 +478,53 @@ Overall profit = 2
 
         System.out.println(c2[s1.length()]);
     }
+
 }
 
+//working of comparator
+class GfG3{
+
+    public static void main(String[] args) {
+        Point arr[] = {new Point(181,272), new Point(33,744),
+        new Point(55,66)};
+
+
+        //Arrays.sort(arr, new MyComparator());
+
+        //Using lambda expression here
+        Arrays.sort(arr, (p1,p2)-> p1.y-p2.y);
+
+        System.out.println(Arrays.toString(arr));
+
+    }
+}
+
+class Point{
+
+    int x,y;
+
+    Point(int x, int y){
+
+        this.x = x;
+        this.y = y;
+    }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
+}
+
+/*class MyComparator implements  Comparator<Point>{
+
+    @Override
+    public int compare(Point o1, Point o2) {
+        return o1.x - o2.x;
+    }
+}*/
 
  class X{
 
