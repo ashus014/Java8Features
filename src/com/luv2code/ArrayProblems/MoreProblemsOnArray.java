@@ -38,22 +38,46 @@ public class MoreProblemsOnArray {
     }
 
     //Container with most water problem
-    public int maxArea(int[] height) {
+    public int maxArea(int[] a) {
 
-        int maxResult=-1;
+        /*int maxResult=-1;
         int tempResult=0;
 
         for(int i=0; i<height.length; i++ ){
 
             for(int j=i+1; j<height.length; j++){
 
-                tempResult = (((j+1)-(i+1))*Integer.min(height[i], height[j]));
+                tempResult = (((j+1)-(i+1))*Math.min(height[i], height[j]));
                 if(tempResult > maxResult){
                     maxResult = tempResult;
                 }
             }
         }
-        return maxResult;
+        return maxResult;*/
+        //use of the two pointers solution
+        int max =0;
+        int n = a.length;
+        int area=0;
+        int i=0;
+        int j =n-1;
+        while(i<j)
+        {
+            area = (j-i)* Math.min(a[i], a[j]);
+            if(area > max)
+            {
+                max = area;
+            }
+            if(a[i] >a[j])
+            {
+                j--;
+            }
+            else
+            {
+                i++;
+            }
+        }
+        return max;
+
     }
 
 }

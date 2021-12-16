@@ -30,10 +30,8 @@ public class Main {
 
         for(int i=0; i<numberN; i++){
 
-            for(int j=0; j<numberN; j++){
-
                 num1 = i+1;
-                num2 = j+1;
+                num2 = numberN - num1 - 1;
                 max = findNum3(num1, num2);
 
                 if(max > num3){
@@ -42,11 +40,7 @@ public class Main {
                     if(num3 > 0 && num1 + num2 + num3 == numberN){
                         System.out.println(num1 + " " + num2 + " " + num3);
                     }
-
                 }
-
-
-            }
         }
     }
 }
