@@ -36,4 +36,24 @@ public class MoreProblemsOnArray {
         }
 
     }
+
+    //Container with most water problem
+    public int maxArea(int[] height) {
+
+        int maxResult=-1;
+        int tempResult=0;
+
+        for(int i=0; i<height.length; i++ ){
+
+            for(int j=i+1; j<height.length; j++){
+
+                tempResult = (((j+1)-(i+1))*Integer.min(height[i], height[j]));
+                if(tempResult > maxResult){
+                    maxResult = tempResult;
+                }
+            }
+        }
+        return maxResult;
+    }
+
 }
