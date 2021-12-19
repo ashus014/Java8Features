@@ -1,6 +1,4 @@
-package com.luv2code;
-
-import java.io.*;
+package com.luv2code.RandomCodes;
 
 // Java program to implement
 // a Singly Linked List

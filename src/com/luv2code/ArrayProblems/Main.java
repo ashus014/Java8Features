@@ -1,7 +1,5 @@
 package com.luv2code.ArrayProblems;
 
-import com.luv2code.Solution;
-
 public class Main {
 
     public static void main(String[] args) {

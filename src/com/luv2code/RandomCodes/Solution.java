@@ -1,10 +1,11 @@
-package com.luv2code;
+package com.luv2code.RandomCodes;
 
 import java.util.*;
+import java.util.LinkedList;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-public class Solution {
+ public class Solution {
 
     public int finalValueAfterOperations(String[] operations) {
 
@@ -507,8 +508,53 @@ Overall profit = 2
 
     }
 
+    //fuel problem
+    public int canCompleteCircuit(final List<Integer> A, final List<Integer> B) {
 
+        int start =0, totalGasUsed= 0, totalGasFoud =0;
+        int gasRequiredBefore =0;
+        int gasFoundBefore =0;
 
+        for(int i= 0;i<A.size(); i++){
+            totalGasUsed +=B.get(i);
+            totalGasFoud +=A.get(i);
+            if(totalGasFoud-totalGasUsed<0){
+                gasRequiredBefore +=totalGasUsed;
+                gasFoundBefore+=totalGasFoud;
+                totalGasUsed =0;
+                totalGasFoud =0;
+                start =i+1;
+            }
+        }
+
+        if(((totalGasFoud+gasFoundBefore)-(totalGasUsed+gasRequiredBefore))>=0) return start;
+        return -1;
+
+        /*for(int i=0;i<A.size();i++){
+
+            totalFuel += A.get(i);
+            if(totalFuel < B.get(i)){
+                totalFuel = 0;
+            }
+            else{
+                totalFuel -= B.get(i);
+            }
+        }*/
+    }
+
+     //Print first letter of every word in the string
+     public String firstAlphabet(String S) {
+
+        String finalString="";
+        String[] splitStr = S.trim().split("\\s+");
+
+        for(int i=0; i<splitStr.length; i++){
+
+            finalString += splitStr[i].charAt(0);
+        }
+
+        return finalString;
+     }
 }
 
 //working of comparator

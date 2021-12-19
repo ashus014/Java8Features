@@ -1,4 +1,4 @@
-package com.luv2code;
+package com.luv2code.RandomCodes;
 
 public interface Activity {
 
