@@ -18,20 +18,9 @@ public class ProblemTwo {
 
             if(x1 == y1) result[i]="YES";
             else if(x1 < y1) result[i]="NO";
+            else if(x1 - y1 ==1) result[i]="NO";
             else{
-
-                for(;y1 < x1;){
-
-                    y1 = y1 + 2;
-                    x1 = x1 + 1;
-
-                    if(x1 == y1){
-                        result[i]="YES";
-                        break;
-                    }
-                    result[i]="NO";
-                }
-
+                result[i]="YES";
             }
 
         }
