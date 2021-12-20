@@ -3,8 +3,9 @@ package com.luv2code.leetcode.weekly.contest272;
 public class Main {
 
     public static void main(String[] args) {
-        Solution1 s1 = new Solution1();
-        String[] ashu = {"abc","car","ada","racecar","cool"};
-        System.out.println(s1.firstPalindrome(ashu));
+        Solution2 s2 = new Solution2();
+        String s = "LeetcodeHelpsMeLearn";
+        int[] spaces = {8,13,15};
+        System.out.println(s2.addSpaces(s, spaces));
     }
 }
