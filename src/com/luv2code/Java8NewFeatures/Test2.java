@@ -57,6 +57,21 @@ public class Test2 extends Thread
         treeSets.stream()
                 .forEach(System.out::println);
 
+        String str = "()";
+
+        //char[] c = str.toCharArray();
+
+
+        int checkForRound = 0;
+        int checkForCurly = 0;
+        int checkForSquare = 0;
+
+        char[] c = str.toCharArray();
+
+        for(int i=0;i<c.length;i++){
+            if(c[i] == '(') checkForRound++;
+        }
+
 
     }
 }
